@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="index-container">
+    <!-- Home Icon -->
+    <div class="home-icon"></div>
+    
+    <h1>Classmate Info Bot</h1>
+    <p>Get information about your classmates by asking questions!</p>
+    <div class="button-container">
+        <a href="{{ url_for('train') }}" class="action-button">Train the Bot</a>
+        <a href="{{ url_for('chatbot') }}" class="action-button">Chat with the Bot</a>
+    </div>
+    <img src="{{ url_for('static', filename='imagess/welcome.jpg') }}" alt="Welcome Image" class="welcome-image">
+</div>
+{% endblock %}
