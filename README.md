@@ -6,7 +6,7 @@ Built with Flask for the web interface, SpaCy for vector-based NLP, and SQLite f
 
 Key Features
 
-Semantic NLP matching using SpaCy’s vector model (en_core_web_md)
+Semantic NLP matching using SpaCy’s vector model 
 
 AI-driven similarity scoring instead of keyword or rule matching
 
