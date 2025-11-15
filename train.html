@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="train-container">
+    <!-- Back Button (Arrow) -->
+    <a href="{{ url_for('index') }}" class="back-btn">
+        <img src="{{ url_for('static', filename='imagess/arrow-left.png') }}" alt="Back" class="back-arrow">
+    </a>
+    
+    <h1>Train the Bot</h1>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="question">Enter Question:</label>
+            <textarea id="question" name="question" rows="4" placeholder="Type the question here..." required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="answer">Enter Answer:</label>
+            <textarea id="answer" name="answer" rows="4" placeholder="Type the answer here..." required></textarea>
+        </div>
+        <div class="form-group button-group">
+            <button type="submit" class="submit-btn">Train Bot</button>
+        </div>
+    </form>
+
+    <!-- Clear All Button -->
+    <form action="{{ url_for('clear') }}" method="POST" style="display: inline;">
+        <button type="submit" class="clear-btn">Clear All</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-message">
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
