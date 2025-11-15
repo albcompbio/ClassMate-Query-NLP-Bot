@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-container">
+    <!-- Back Button (Arrow) -->
+    <a href="{{ url_for('index') }}" class="back-btn">
+        <img src="{{ url_for('static', filename='imagess/arrow-left.png') }}" alt="Back" class="back-arrow">
+    </a>
+    
+    <!-- Classmate Info Bot Title -->
+    <h1 class="title">Classmate Info Bot</h1>
+    
+    <div class="chat-box" id="chat-box">
+        {% for message in messages %}
+        <div class="message {{ message.type }}-message">
+            <img src="{{ url_for('static', filename='imagess/' ~ message.avatar) }}" class="avatar" alt="{{ 'You' if message.type == 'user' else 'Bot' }}">
+            <div class="message-text">{{ message.text }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="input-area">
+        <form method="POST">
+            <input type="text" name="question" placeholder="Type your question here..." required />
+            <button type="submit" class="send-button">
+                <img src="{{ url_for('static', filename='imagess/paper-plane.png') }}" class="send-icon" alt="Send">
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
